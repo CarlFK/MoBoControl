@@ -1,0 +1,12 @@
+[Unit]
+Description=sshd ready LED
+After=ssh.target systemd-user-sessions.target
+PartOf=ssh.service
+BindsTo=ssh.service
+
+[Service]
+ExecStart=/bin/sh -c "/usr/bin/echo 1 > /sys/class/leds/sshd/brightness"
+Type=oneshot
+
+[Install]
+WantedBy=multi-user.target
