@@ -1,6 +1,7 @@
 [Unit]
-Description=sshd ready LED
-After=ssh.target systemd-user-sessions.target
+Description=sshd almost ready LED
+Wants=network-online.target
+After=ssh.target systemd-user-sessions.target network-online.target
 PartOf=ssh.service
 BindsTo=ssh.service
 
